@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <script type="text/babel">
+      const user = {
+        name: 'Jack',
+        gender: 'male',
+        old: '17'
+      };
+
+      function  formatUser(user) {
+        if(user) {
+            return '' + user.name + ',' + user.gender + "," + user.old;
+        }
+        return 'null';
+      }
+
+      const element = <h1>{formatUser(user)}</h1>;
+
+
+      const element2 = (
+        <h1 className = 'greeting'>
+            Hello,world!
+        </h1>
+      );
+
+      const element3 = React.createElement(
+        'h1',
+        {className:'greeting'},
+        'Hello,world!'
+      );
+
+      const element4 =  {
+        type : 'h1',
+        props:{
+          className : 'greeting',
+          children : 'Hello,world!'
+        }
+      };
+
+      ReactDOM.render (
+        element4,
+        document.getElementById('root')
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
