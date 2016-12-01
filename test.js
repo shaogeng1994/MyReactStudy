@@ -48,17 +48,46 @@ function UserInfo(props) {
     );
 }
 
+function sum(a,b) {
+    return a + b;
+}
+
+function withdraw(account,amount) {
+    return account.total -= amount;
+}
+
 const MyAuthor = {
     author: {
         name: 'aa',
         avatarUrl: 'http://tva4.sinaimg.cn/crop.0.0.750.750.180/757c4c8bjw8et08n5e6mzj20ku0kujs8.jpg'
     },
     text: 'cc',
-    date: new Date()
+    date: new Date(),
+    total: 1000
 };
 
+function MakeMoney(props) {
+    return (
+        <div>
+            {sum(props.num,2)}
+        </div>
+    );
+}
+
+
+
+const element = (
+    <div>
+        <Comment date={MyAuthor.date} text={MyAuthor.text} author={MyAuthor.author} />
+        <MakeMoney num={MyAuthor.total} />
+        <div>
+            {withdraw(MyAuthor,30)}
+        </div>
+    </div>
+);
+
 ReactDOM.render(
-    <Comment date={MyAuthor.date} text={MyAuthor.text} author={MyAuthor.author} />,
+    element,
     document.getElementById('root')
 );
 
